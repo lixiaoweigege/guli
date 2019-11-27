@@ -6,4 +6,4 @@ guli-sysuesr:8002
 guli-aliyunoss:8003
 guli-ucenter:8004
 guli-statistics:8005
-guli-eureka:8100
+guli-eureka:8100别人修改
