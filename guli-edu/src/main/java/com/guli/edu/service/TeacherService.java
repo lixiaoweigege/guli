@@ -5,6 +5,8 @@ import com.guli.edu.entity.Teacher;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.guli.edu.entity.vo.TeacherQueryVo;
 
+import java.util.Map;
+
 /**
  * <p>
  * 讲师 服务类
@@ -21,4 +23,6 @@ public interface TeacherService extends IService<Teacher> {
      * @param vo
      */
     void pageQuery(Page<Teacher> pageParam, TeacherQueryVo vo);
+
+    Map<String, Object> pageListWeb(Page<Teacher> pageParam);
 }
