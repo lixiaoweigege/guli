@@ -34,4 +34,6 @@ public interface CourseService extends IService<Course> {
     List<Course> selectByTeacherId(String id);
 
     Map<String, Object> pageListWeb(Page<Course> pageParam);
+
+    Map<String, Object> getCourseInfo(String courseId);
 }

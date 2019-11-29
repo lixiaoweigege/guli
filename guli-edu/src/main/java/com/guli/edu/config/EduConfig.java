@@ -14,7 +14,7 @@ import org.springframework.transaction.event.TransactionalEventListener;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.guli.edu")
+@ComponentScan({"com.guli.edu","com.guli.common"})
 @MapperScan("com.guli.edu.mapper")
 public class EduConfig {
 

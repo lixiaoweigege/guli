@@ -141,4 +141,9 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
 
         return map;
     }
+
+    @Override
+    public Map<String, Object> getCourseInfo(String courseId) {
+        return baseMapper.getCourseInfo(courseId);
+    }
 }

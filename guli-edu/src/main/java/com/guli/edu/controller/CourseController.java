@@ -7,6 +7,7 @@ import com.guli.common.entity.Result;
 import com.guli.edu.entity.Course;
 import com.guli.edu.entity.vo.CourseInfo;
 import com.guli.edu.entity.vo.CourseQuery;
+import com.guli.edu.service.ChapterService;
 import com.guli.edu.service.CourseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,6 +33,8 @@ import java.util.Map;
 public class CourseController {
     @Autowired
     private  CourseService courseService;
+    @Autowired
+    private ChapterService chapterService;
     @PostMapping("save-course-info")
     @ApiOperation("保存课程基本信息并返回id,用于后面保存章节信息")
     public Result saveCourseInfo(
@@ -113,6 +116,19 @@ public class CourseController {
         Map<String, Object> map = courseService.pageListWeb(pageParam);
 
         return  Result.ok().data(map);
+    }
+    /**
+     * 根据课程Id获取课程详情数据
+     */
+    @GetMapping("getCourseInfo/{courseId}")
+    public Result getCourseInfo(@PathVariable("courseId") String courseId){
+        //1、课程基本信息：course表，讲师的信息，课程分类的信息
+        Map<String, Object> map = courseService.getCourseInfo(courseId);
+        //2、大纲：根据课程Id获取大纲列表
+        List<Map<String, Object>> mapList = chapterService.getListByCourseId(courseId);
+        return Result.ok()
+                .data("courseInfo", map)
+                .data("chapterList", mapList);
     }
 }
 

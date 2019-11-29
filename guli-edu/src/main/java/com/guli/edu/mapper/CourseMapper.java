@@ -16,4 +16,5 @@ import java.util.Map;
 public interface CourseMapper extends BaseMapper<Course> {
 
     Map<String, Object> getPublishCourseByCourseId(String courseId);
+    Map<String,Object> getCourseInfo(String courseId);
 }
